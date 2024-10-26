@@ -1,76 +1,85 @@
-# HTF24-Team-268
+# FaceCheck - Facial Recognition Attendance System
 
-## GitHub submission guide
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Project Overview](#project-overview)
+3. [Features](#features)
+4. [Technical Stack](#technical-stack)
+5. [Requirements](#requirements)
+6. [Installation and Setup](#installation-and-setup)
+7. [Acknowledgements](#acknowledgements)
 
-In this Readme, you will find a guide on how to fork this Repository, add files to it, and make a pull request to contribute your changes.
 
-<details open>
-<summary><h3>1. Login to your GitHub Account by heading over to <a href="https://github.com">github.com</a></h3></summary>
-<br>
-<ul>
-   <li>Open the <a href="https://github.com/cbitosc/HTF24-Team-268">current repo</a> in a new tab.</li>
-   <li>Perform all operations in the newly opened tab, and follow the current tab for instructions.</li>
-</ul>
-</details>
+## Introduction
+FaceCheck is an advanced attendance tracking system that uses facial recognition technology to automatically record attendance. This project is designed to offer a quick, reliable, and error-free method of tracking attendance, eliminating the need for manual processes. Developed in collaboration with teammates Thakur Meghana and Satvika Devara, FaceCheck is ideal for use in educational institutions, workplaces, and other settings where attendance tracking is essential.
 
-<details>
-<summary><h3>2. Fork the Repository</h3></summary>
-<br>
-<ul>
- <li>In the newly opened tab, on the top-right corner, click on <b>Fork</b></li>
- <img src="/images/fork.png">
+## Project Overview
+FaceCheck captures images of users' faces via a camera and matches them against a pre-existing database of faces to verify identity. When a match is found, the system automatically logs the attendance, ensuring a seamless and efficient process. This innovative system significantly improves upon traditional attendance methods by providing faster and more accurate results.
 
- <li>Enter the <b>Repository Name</b> as <b>HTF24-Team-268</b>.</li>
- <li>Then click <b>Create Fork</b> leaving all other fields to their default value.</li>
- <img src="/images/create-fork.png">
- <li>After a few moments, you can view the repo.</li>
-</ul>
-</details>
+## Features
+- **Automated Attendance Recording:** Utilizes facial recognition to automatically record attendance without the need for manual input.
+- **High Precision and Speed:** Delivers rapid and accurate attendance logging, enhancing overall productivity.
+- **Real-Time Data Tracking:** Enables administrators to monitor attendance data in real time.
+- **Wide Range of Applications:** Suitable for use in schools, universities, offices, hospitals, and other institutions.
 
-<details>
-<summary><h3>3. Clone your Repository</h3></summary>
-<br>
-<ul>
- <li>Click on <b>Code</b> and from the dropdown menu copy your <b>web URL</b> in your forked Repository. </li>
- <img src="/images/clone1.png">
- <li>Now open terminal on your local machine.</li>
- <li>Use the following command to clone your forked Repository:</li>
-<code> git clone https://github.com/your-username/HTF24-Team-268.git </code>
-<hr>
- <img src="/images/clone2.png">
+## Technical Stack
+- **Front-End:** HTML5, CSS3, JavaScript, React.js
+- **Back-End:** Node.js, Express.js
+- **Database:** MongoDB
+- **Facial Recognition:** OpenCV, dlib, face_recognition library
+- **Authentication:** JSON Web Tokens (JWT), bcrypt
+- **Version Control:** Git, GitHub
 
-</ul>
-</details>
+## Requirements
+- Python 3.x
+- Node.js
+- MongoDB
+- OpenCV
+- NumPy
+- pandas
+- dlib
+- face_recognition
 
-<details>
-<summary><h3>4. Adding files to the Repository</h3></summary>
-<br/>
-<ul>
- <li>While doing it for the first time, create a new branch for your changes.</li>
-   <code> git checkout -b branch-name </code>
-   <li>Add your files or make modifications to existing files.</li>
-   <li>Stage your changes:</li>
-   <code> git add . </code>
-   <li>Commit your changes:</li>
-   <code> git commit -m "Descriptive commit message" </code>
-   <li>Push changes to your fork </li>
-   <code> git push origin branch-name </code>
-   <hr>
-   
- <img src="/images/push.png">
-</ul>
-</details>
+## Installation and Setup
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/facecheck.git
+    cd facecheck
+    ```
+2. Install dependencies:
+    ```sh
+    npm install
+    cd client
+    npm install
+    cd ..
+    ```
+3. Set up environment variables: Create a `.env` file in the root directory and add the following variables:
+    ```sh
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_jwt_secret
+    ```
+4. Run the application:
+    ```sh
+    npm run dev
+    ```
+    This command will start both the server and the client concurrently.
 
-<details>
-<summary><h3>5. Create a Pull Request</h3></summary>
-   <br>
-<ul>
- <li>Finally, click on the <b>Contribute</b> button and choose <b>Open Pull Request</b>.</li>
- <img src="/images/PR1.png">
- <li>Leaving all fields to their default values, click on <b>Create Pull Request</b>.</li>
- <img src="/images/PR2.png">
- <li>Wait for a few moments, then you are all done</li>
-</ul>
-</details>
+```
 
-## Thanks for participating!
+### User Registration
+Register users by capturing their facial images and storing them in the database using the `add_faces.py` script:
+```sh
+python add_faces.py
+```
+
+### Attendance Marking
+Users simply stand in front of the camera, and the system automatically records their attendance if a match is found using the `app.py` script:
+```sh
+python app.py
+```
+
+## Acknowledgements
+Special thanks to my teammates Thakur Meghana and Satvika Devara for their essential contributions to this project. We also extend our gratitude to our mentors and supporters for their guidance and encouragement.
+
+FaceCheck is a major leap forward in attendance tracking technology. This project has provided us with practical experience and a deeper understanding of facial recognition applications. We are excited to continue improving the system and exploring new features to enhance its efficiency and reliability.
+
