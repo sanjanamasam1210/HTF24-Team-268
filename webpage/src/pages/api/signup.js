@@ -18,9 +18,12 @@ export default async function handler(req, res) {
         year,
         gender,
         branch,
+        role: 0, // Set default role as 0 (student)
       });
+
       res.status(201).json({ message: "User created successfully!" });
     } catch (error) {
+      console.error("Error saving user:", error); // Add error logging
       res.status(400).json({ message: "Error creating user", error });
     }
   } else {
