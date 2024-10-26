@@ -23,124 +23,155 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50 ">
-        <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md space-y-6 text-center">
-      <form onSubmit={handleSubmit} className="bg-white p-10 rounded-xl shadow-xl w-full max-w-lg space-y-8">
-        
-        <h2 className="text-3xl font-semibold text-center justify-center text-gray-800 mb-8">Create an Account</h2>
-        
-        <input
-          name="name"
-          placeholder="Full Name"
-          onChange={handleChange}
-          className="input-field"
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          onChange={handleChange}
-          className="input-field"
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={handleChange}
-          className="input-field"
-        />
-        <input
-          name="rollNo"
-          placeholder="Roll Number"
-          onChange={handleChange}
-          className="input-field"
-        />
+    <div className="outer-container">
+      <div className="box-container">
+        <form onSubmit={handleSubmit} className="form-container space-y-4 text-center">
+          <h2 className="text-3xl font-semibold text-gray-800">Create an Account</h2>
 
-        <div className="flex flex-col space-y-4">
-          <select
-            name="year"
-            onChange={handleChange}
-            value={formData.year}
-            className="input-field"
-          >
-            <option value="1">1st Year</option>
-            <option value="2">2nd Year</option>
-            <option value="3">3rd Year</option>
-            <option value="4">4th Year</option>
-          </select>
+          <div className="input-group">
+            <input
+              name="name"
+              placeholder="Full Name"
+              onChange={handleChange}
+              className="input-field"
+            />
+          </div>
 
-          <select
-            name="gender"
-            onChange={handleChange}
-            value={formData.gender}
-            className="input-field"
-          >
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
-          </select>
+          <div className="input-group">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={handleChange}
+              className="input-field"
+            />
+          </div>
 
-          <select
-            name="branch"
-            onChange={handleChange}
-            value={formData.branch}
-            className="input-field"
-          >
-            <option value="CSE">CSE</option>
-            <option value="ECE">ECE</option>
-          </select>
-        </div>
+          <div className="input-group">
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handleChange}
+              className="input-field"
+            />
+          </div>
 
-        <button type="submit" className="submit-button">Sign Up</button>
+          <div className="input-group">
+            <input
+              name="rollNo"
+              placeholder="Roll Number"
+              onChange={handleChange}
+              className="input-field"
+            />
+          </div>
 
-        <p className="text-center text-gray-600 mt-4">
-          Already have an account?
-          <Link href="/login" className="text-blue-600 hover:underline ml-2">
-            Log In
-          </Link>
-        </p>
-      </form>
-  
+          <div className="input-group">
+            <select
+              name="year"
+              onChange={handleChange}
+              value={formData.year}
+              className="input-field"
+            >
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
+          </div>
+
+          <div className="input-group">
+            <select
+              name="gender"
+              onChange={handleChange}
+              value={formData.gender}
+              className="input-field"
+            >
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+            </select>
+          </div>
+
+          <div className="input-group">
+            <select
+              name="branch"
+              onChange={handleChange}
+              value={formData.branch}
+              className="input-field"
+            >
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+            </select>
+          </div>
+
+          <div className="input-group">
+            <button type="submit" className="submit-button">Sign Up</button>
+          </div>
+
+          <p className="text-gray-600">
+            Already have an account?
+            <Link href="/login" className="text-blue-600 hover:underline ml-2">
+              Log In
+            </Link>
+          </p>
+        </form>
+      </div>
 
       <style jsx>{`
-        /* Input Fields */
+        .outer-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          background-color: #f3f4f6;
+          padding: 0 1rem;
+        }
+        .box-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #D3D3D3;
+          padding: 2rem;
+          border-radius: 1rem;
+          box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+          max-width: 400px;
+          width: 100%;
+        }
+        .form-container {
+          width: 100%;
+          max-width: 300px; /* Limit form width to prevent stretching */
+          text-align: center;
+        }
         .input-field {
-          width: 80%; /* Limit width to a fixed size */
-          max-width: 300px; /* Prevent excessive stretching */
-          margin: 0 auto; /* Center-align fields */
+          width: 100%;
           padding: 0.75rem;
           font-size: 1rem;
-          border: 1px solid #d1d5db; /* Light gray border */
+          border: 1px solid #d1d5db;
           border-radius: 0.5rem;
-          outline: none;
-          transition: box-shadow 0.2s;
-          background-color: #f9fafb; /* Light background for a soft look */
+          background-color: #f9fafb;
         }
-        .input-field:focus {
-          border-color: #3b82f6; /* Blue border on focus */
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Blue focus shadow */
+        .input-group {
+          display: flex;
+          justify-content: center;
+          margin-bottom:0.6rem;
         }
-
-        /* Submit Button */
         .submit-button {
-          width: 80%; /* Limit width to a fixed size */
-          max-width: 300px; /* Prevent excessive stretching */
-          margin: 0 auto; /* Center-align button */
+          width: 100%;
           padding: 0.75rem;
           font-size: 1rem;
           font-weight: bold;
           color: #ffffff;
-          background-color: #10b981; /* Green background */
+          background-color: #10b981;
           border: none;
           border-radius: 0.5rem;
           cursor: pointer;
           transition: background-color 0.3s, transform 0.2s;
         }
         .submit-button:hover {
-          background-color: #2563eb; /* Blue on hover */
-          transform: translateY(-2px); /* Subtle lift effect */
+          background-color: #2563eb;
+          transform: translateY(-2px);
         }
       `}</style>
-    </div>
     </div>
   );
 }

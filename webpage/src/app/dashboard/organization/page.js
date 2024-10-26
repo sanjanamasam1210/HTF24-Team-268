@@ -4,16 +4,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function OrganizationDashboard() {
-  const [showForm, setShowForm] = useState(false); // Controls the form visibility
+  const [showForm, setShowForm] = useState(false); 
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     imageUrl: "",
   });
   const [events, setEvents] = useState([]);
-  const [selectedEvent, setSelectedEvent] = useState(null); // Controls the selected event for the modal
+  const [selectedEvent, setSelectedEvent] = useState(null); 
 
-  // Fetch existing events from the database when the component loads
   useEffect(() => {
     const fetchEvents = async () => {
       const res = await fetch("/api/events");
@@ -38,9 +37,9 @@ export default function OrganizationDashboard() {
     const data = await res.json();
 
     if (res.ok) {
-      setEvents((prevEvents) => [...prevEvents, data.event]); // Add new event to events list
-      setFormData({ name: "", description: "", imageUrl: "" }); // Clear the form
-      setShowForm(false); // Hide the form after submission
+      setEvents((prevEvents) => [...prevEvents, data.event]); 
+      setFormData({ name: "", description: "", imageUrl: "" }); 
+      setShowForm(false); 
     } else {
       console.error("Failed to create event:", data.message);
     }
@@ -73,16 +72,12 @@ export default function OrganizationDashboard() {
   return (
     <div className="flex flex-col items-center p-6 min-h-screen bg-gray-50">
       <h1 className="text-3xl font-semibold text-gray-800 mb-8">Organization Dashboard</h1>
-
-      {/* Button to Toggle Event Creation Form */}
       <button
         onClick={() => setShowForm(!showForm)}
         className="bg-blue-600 text-white px-4 py-2 rounded-md mb-6 hover:bg-blue-700 transition"
       >
         {showForm ? "Cancel" : "Create Event"}
       </button>
-
-      {/* Event Creation Form (Visible Only When showForm is True) */}
       {showForm && (
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full max-w-lg space-y-4">
           <h2 className="text-xl font-bold">Create an Event</h2>
@@ -114,8 +109,6 @@ export default function OrganizationDashboard() {
           <button type="submit" className="submit-button">Create Event</button>
         </form>
       )}
-
-      {/* Display Events as Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 w-full max-w-4xl">
         {events.map((event) => (
           <div
@@ -131,8 +124,6 @@ export default function OrganizationDashboard() {
           </div>
         ))}
       </div>
-
-      {/* Modal for Event Details */}
       {selectedEvent && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full space-y-4">
